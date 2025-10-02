@@ -33,13 +33,38 @@ body {
   font-weight: bold;
 }
 
-nav a {
+/* Navigation Styles */
+/*nav a {
   margin-left: 15px;
   text-decoration: none;
   justify-content: space-evenly;
   align-items: end;
   color: black;
   font-weight: bold;
+} */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-list li {
+  margin-left: 15;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+/* Hamburger Menu Icon (Hidden on Desktop) */
+.hamburger {
+  display: none; /* Hide by default */
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 20px;
 }
 
 /* Main Section */
@@ -52,6 +77,7 @@ nav a {
   min-height: 80vh;                 /* Adjust for centering in viewport */
   padding: 40px 20px;
 }
+
 .hero-content {
  max-width: 400px;             /* Add some space between text and image */
 }
@@ -92,6 +118,29 @@ nav a {
 
   .hero-image img {
     width: 90%;                                /* Image can be smaller */
+  }
+
+  
+  /* Make nav items stack vertically on tablets */
+  .nav-list {
+    display: none; /* Hide navigation links by default */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: whitesmoke;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .nav-list.active {
+    display: flex; /* Show the menu when active */
+  }
+
+   /* Show the hamburger icon on tablets and mobile */
+  .hamburger {
+    display: block;
   }
 }
 
