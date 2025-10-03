@@ -16,8 +16,9 @@ body {
   justify-content: space-between; /* logo left, nav right */
   align-items: center;
   padding: 10px 20px;
-  gap:100px;
+  /*gap:100px; */
   font-weight:bolder;
+  position:relative;
   background-color: whitesmoke;
 }
 
@@ -33,23 +34,34 @@ body {
   font-weight: bold;
 }
 
-/* Navigation Styles */
-/*nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  justify-content: space-evenly;
-  align-items: end;
-  color: black;
-  font-weight: bold;
-} */
+/* hide the checkbox*/
+.menu-toggle {
+  display:none;
+}
 
+  /*  hamburger icon */
+.hamburger {
+  display:none;
+  font-size:2rem;
+  cursor:pointer;
+}
+
+
+/* Navigation Styles */
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  display:flex;
+  gap:20px;
+
 }
 
 .nav-list li {
+  display: flex;
+  list-style: none;
   margin-left: 15;
 }
 
@@ -59,13 +71,7 @@ body {
   font-weight: bold;
 }
 
-/* Hamburger Menu Icon (Hidden on Desktop) */
-.hamburger {
-  display: none; /* Hide by default */
-  font-size: 2rem;
-  cursor: pointer;
-  margin-left: 20px;
-}
+
 
 /* Main Section */
 .hero {
@@ -123,7 +129,7 @@ body {
   
   /* Make nav items stack vertically on tablets */
   .nav-list {
-    display: none; /* Hide navigation links by default */
+    display: none;                         /* Hide navigation links by default */
     flex-direction: column;
     position: absolute;
     top: 60px;
@@ -135,7 +141,7 @@ body {
   }
 
   .nav-list.active {
-    display: flex; /* Show the menu when active */
+    display: flex;              /* Show the menu when active */
   }
 
    /* Show the hamburger icon on tablets and mobile */
@@ -162,4 +168,40 @@ body {
   .hero-image img {
     width: 100%;                      /* Make image full width */
   }
+
+   .nav-list {
+    display: none;                  /* Hide navigation links by default */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: whitesmoke;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+    gap:10px;
+    z-index: 1000;            /* Ensure it appears above other content */
+  }
+
+  .nav-list.active {
+    display: flex;            /* Show the menu when active */
+  }
+
+  .hamburger {
+  display: block;                    /* Show hamburger on mobile */
+  font-size: 2rem;
+  cursor: pointer;
+  }
+
+  .nav-list {
+  transition: all 0.3s ease;
+ }
+ 
+  /* Show nav when checkbox is checked */
+  .menu-toggle:checked ~ .navbar .nav-list {
+    display: flex;
+  }
+
 }
